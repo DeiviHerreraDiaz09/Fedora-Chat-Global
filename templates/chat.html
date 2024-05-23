@@ -1,47 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Websocket Demo</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styleTwo.css" />
+    <title>Document</title>
   </head>
   <body>
-    <div class="container mt-3">
-      <h1>Fedora Chat Global (WebSocket)</h1>
-      <h2>Bienvenido, <span id="ws-username">{{ username }}</span></h2>
-      <form action="" onsubmit="sendMessage(event)">
-        <input
-          type="text"
-          class="form-control"
-          id="messageText"
-          autocomplete="off"
-        />
-        <button class="btn btn-outline-primary mt-2">Send</button>
-      </form>
-      <ul id="messages" class="mt-5"></ul>
+    <div class="menu">
+      <div class="closeSession">
+        <div class="imgCloseSession" onclick="closeSession()"></div>
+      </div>
+      <div class="profile"></div>
+      <h1 id="username">{{ username }}</h1>
+      <h3>Usuario</h3>
     </div>
+    <div class="chat">
+      <div class="messages">
+        <div class="tittleWel">
+          <h1>Welcome to Fedora</h1>
+        </div>
+        <div id="messages" class="msgsUsers"></div>
+        <div class="sendmsg">
+          <input type="text" id="messageText" placeholder="Mensaje" />
+          <button onclick="sendMessage(event)"></button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var username = "{{ username }}";
+    var ws = new WebSocket(`ws://localhost:8000/ws/${username}`);
 
-    <script>
-      var username = "{{ username }}";
-      var ws = new WebSocket(`ws://localhost:8000/ws/${username}`);
-      ws.onmessage = function (event) {
-        var messages = document.getElementById("messages");
-        var message = document.createElement("li");
-        var content = document.createTextNode(event.data);
-        message.appendChild(content);
-        messages.appendChild(message);
-      };
-      function sendMessage(event) {
-        var input = document.getElementById("messageText");
+    ws.onmessage = function (event) {
+      var messages = document.getElementById("messages");
+      var message = document.createElement("div");
+      message.classList.add("msg");
+      var imgUser = document.createElement("div");
+      imgUser.classList.add("imgUser");
+      var content = document.createElement("h4");
+      content.textContent = event.data;
+
+      message.appendChild(imgUser);
+      message.appendChild(content);
+      messages.appendChild(message);
+    };
+
+    function sendMessage(event) {
+      var input = document.getElementById("messageText");
+      if (input.value.trim() !== "") {
         ws.send(input.value);
         input.value = "";
-        event.preventDefault();
       }
-    </script>
-  </body>
+      event.preventDefault();
+    }
+
+    function closeSession() {
+      window.location.href = "/";
+    }
+
+    document.getElementById("messageText").addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        sendMessage(event);
+      }
+    });
+
+  </script>
 </html>

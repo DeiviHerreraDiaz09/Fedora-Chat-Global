@@ -1,0 +1,177 @@
+@font-face {
+    font-family: recipeFamily;
+    src: url("fonts/outfit/Outfit-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: recipeFamily2;
+    src: url("fonts/young-serif/YoungSerif-Regular.ttf");
+}
+
+* {
+    font-family: recipeFamily;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #303E4D;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.menu {
+    height: 100%;
+    background-color: #171e25;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+
+.closeSession {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.imgCloseSession {
+    margin-left: 20px;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("/static/img/left.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* PROFILE */
+
+.profile {
+    margin-top: 20px;
+    width: 50%;
+    height: 30%;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-image: url("/static/img/User\ 05a.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.menu>h1,
+h3 {
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+/* CHAT */
+
+.chat {
+    padding: 3%;
+}
+
+.messages {
+    background-color: #21272e;
+    box-shadow: 1px 10px 45px 6px rgba(33, 39, 46, 0.77);
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tittleWel {
+    width: 100%;
+    height: 4rem;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.msgsUsers {
+    border: none;
+    width: 100%;
+    height: 26rem;
+    margin-top: 5px;
+    padding: 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.msg {
+    width: 100%;
+    height: 3rem;
+    gap: 15px;
+    margin-left: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.imgUser {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-image: url("/static/img/User\ 05a.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.sendmsg {
+    width: 100%;
+    height: 15%;
+    padding: 1%;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sendmsg>input {
+    width: 90%;
+    height: 2rem;
+    padding: 2%;
+    border-radius: 15px;
+    border: none;
+}
+
+.sendmsg>button {
+    width: 30px;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    background-image: url('/static/img/Style=linear.svg');
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+@media (min-height: 890px) {
+    .msgsUsers {
+        width: 100%;
+        border: none;
+        height: 40rem;
+        margin-top: 5px;
+        padding: 1%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
