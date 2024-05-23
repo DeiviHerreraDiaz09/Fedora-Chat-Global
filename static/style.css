@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #303E4D;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    width: 80%;
+    height: 80%;
+}
+
+form {
+    border-radius: 14px 0px 0px 14px;
+    box-shadow: -16px 17px 22px 1px rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.formImg {
+    border-radius: 0px 14px 14px 0px;
+    background-image: url("img/DALL·E\ 2024-02-27\ 15.14.55\ -\ Create\ an\ abstract\ design\ image\ focusing\ primarily\ on\ the\ color\ scheme\ of\ green\,\ white\,\ and\ dark\ tones\ 1.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.welcomeTittle {
+    text-align: center;
+    width: 100%;
+    height: 4rem;
+    color: #788AA4;
+}
+
+.tittle {
+    font-size: 30px;
+}
+
+.inputUsername {
+    width: 80%;
+    border: none;
+    height: 2rem;
+    border-radius: 15px;
+    padding: 2%;
+    background-color: #303E4D;
+    box-shadow: -1px 19px 22px -7px rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+.inputUsername::placeholder {
+    color: #788AA4;
+    text-align: center;
+}
+
+.buttonUsername {
+    width: 80%;
+    border: none;
+    height: 2rem;
+    border-radius: 15px;
+    background-color: #65C09D;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.buttonUsername:hover {
+    transition-duration: 0.4s;
+    background-color: #257b5a;
+}
